@@ -21,14 +21,14 @@
 :root{
   --bg:#fbfbfd;--bg2:#f5f5f7;--ink:#1d1d1f;--sub:#6e6e73;--faint:#d2d2d7;--line:#e5e5ea;
   --link:#0066cc;--nav:rgba(251,251,253,.72);--dim-word:#d2d2d7;
-  --name-a:#1d1d1f;--name-b:#86868b;--aura-1:rgba(0,113,227,.20);--aura-2:rgba(191,90,242,.16);--spot:rgba(0,113,227,.10);
+  --name-a:#1d1d1f;--name-b:#86868b;--aura-1:rgba(0,113,227,.20);--aura-2:rgba(191,90,242,.16);--spot:rgba(0,113,227,.10);--beam:rgba(0,0,0,.055);--floor:rgba(0,0,0,.10);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.22,.8,.24,1);
 }
 [data-theme="dark"]{
   --bg:#000;--bg2:#0d0d0e;--ink:#f5f5f7;--sub:#a1a1a6;--faint:#424245;--line:#2c2c2e;
   --link:#2997ff;--nav:rgba(0,0,0,.66);--dim-word:#333336;
-  --name-a:#f5f5f7;--name-b:#3a3a3c;--aura-1:rgba(41,151,255,.26);--aura-2:rgba(191,90,242,.20);--spot:rgba(41,151,255,.14);
+  --name-a:#f5f5f7;--name-b:#3a3a3c;--aura-1:rgba(41,151,255,.26);--aura-2:rgba(191,90,242,.20);--spot:rgba(41,151,255,.14);--beam:rgba(255,255,255,.17);--floor:rgba(255,255,255,.07);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -46,6 +46,7 @@ img,video{display:block;max-width:100%}
 /* ---------- nav ---------- */
 .nav{position:fixed;inset:0 0 auto;z-index:50;height:52px;background:var(--nav);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s,background-color .5s,transform .5s var(--ease)}
 .nav.scrolled{border-bottom-color:var(--line)}
+.nav:not(.scrolled){background:transparent;backdrop-filter:none;-webkit-backdrop-filter:none}
 .nav.hide{transform:translateY(-100%)}
 .nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
 .brand{font-size:15px;font-weight:600;letter-spacing:-.015em}
@@ -60,26 +61,30 @@ img,video{display:block;max-width:100%}
 [data-theme="dark"] .theme .sun{display:block}
 [data-theme="dark"] .theme .moon{display:none}
 
-/* ---------- hero: cut-out portrait in front of the name ---------- */
-.hero{position:relative;height:100svh;min-height:640px;max-height:1000px;overflow:hidden;isolation:isolate}
-.aura{position:absolute;inset:0;z-index:-1;pointer-events:none}
-.aura i{position:absolute;border-radius:50%}
-.aura i:nth-child(1){width:52vw;height:52vw;left:24vw;top:18%;background:radial-gradient(circle closest-side,var(--aura-1),transparent);animation:drift1 16s ease-in-out infinite alternate}
-.aura i:nth-child(2){width:34vw;height:34vw;left:52vw;top:34%;background:radial-gradient(circle closest-side,var(--aura-2),transparent);animation:drift2 19s ease-in-out infinite alternate}
-@keyframes drift1{to{transform:translate(-8vw,6vh) scale(1.1)}}
-@keyframes drift2{to{transform:translate(6vw,-8vh) scale(.9)}}
-.name{position:absolute;left:0;right:0;top:15%;text-align:center;font-weight:800;font-size:clamp(84px,19vw,300px);line-height:.86;letter-spacing:-.065em;white-space:nowrap;will-change:transform;user-select:none}
-.name .l{display:inline-block;background:linear-gradient(180deg,var(--name-a) 10%,var(--name-b) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .02em;opacity:0;transform:translateY(40%);filter:blur(14px);animation:rise 1.3s var(--ease) forwards}
-@keyframes rise{to{opacity:1;transform:none;filter:none}}
-.person{position:absolute;left:50%;bottom:0;width:min(520px,70vw);transform:translateX(-50%);will-change:transform;z-index:2}
-.person img{width:100%;height:auto;opacity:0;transform:translateY(80px) scale(.96);animation:person 1.6s var(--ease) .7s forwards}
-@keyframes person{to{opacity:1;transform:none}}
-.corner{position:absolute;bottom:44px;z-index:3;font-size:15px;line-height:1.45;color:var(--sub);opacity:0;animation:up 1s var(--ease) forwards}
-.corner b{display:block;color:var(--ink);font-weight:600;font-size:17px;letter-spacing:-.015em}
-.corner.l{left:max(28px,calc(50% - 560px));animation-delay:1.6s}
-.corner.r{right:max(28px,calc(50% - 560px));text-align:right;animation-delay:1.75s}
-.corner .more{margin-top:10px;font-size:15px}
-@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+/* ---------- hero: keynote stage ---------- */
+.hero{position:relative;height:100svh;min-height:660px;max-height:980px;overflow:hidden;isolation:isolate}
+.hero .wrap{height:100%;display:grid;grid-template-columns:1.15fr .85fr;align-items:center;position:relative;z-index:2}
+.stage-copy{padding-top:40px;will-change:transform}
+.stage-copy .eyebrow{font-size:17px;font-weight:600;color:var(--sub);letter-spacing:-.01em}
+.stage-copy h1{font-size:clamp(44px,4.8vw,78px);line-height:1.02;letter-spacing:-.052em;white-space:nowrap;font-weight:700;margin-top:18px}
+.stage-copy h1 span{display:block}
+.stage-copy h1 .dim{color:var(--sub)}
+.stage-copy p{font-size:clamp(19px,1.7vw,22px);line-height:1.45;color:var(--sub);margin-top:26px;max-width:23em;letter-spacing:-.018em}
+.stage-copy .links{display:flex;gap:28px;margin-top:34px;font-size:18px}
+.build{opacity:0;transform:translateY(22px);filter:blur(10px);animation:build 1.1s var(--ease) forwards}
+@keyframes build{to{opacity:1;transform:none;filter:none}}
+.stage{position:absolute;top:0;bottom:0;right:max(0px,calc(50% - 640px));width:min(640px,52vw);z-index:1;pointer-events:none}
+.lights{position:absolute;inset:0;will-change:opacity}
+.beam{position:absolute;left:50%;top:-4%;width:150%;height:112%;transform:translateX(-50%);background:radial-gradient(ellipse 30% 64% at 50% 0%,var(--beam) 0%,transparent 74%);opacity:0;animation:light-on 2.4s linear .25s forwards}
+@keyframes light-on{0%{opacity:0}6%{opacity:.7}9%{opacity:.1}14%{opacity:.85}18%{opacity:.35}26%{opacity:1}100%{opacity:1}}
+.floor{position:absolute;left:50%;bottom:-7%;width:96%;height:24%;transform:translateX(-50%);background:radial-gradient(ellipse closest-side,var(--floor),transparent);opacity:0;animation:fade-in 2s ease 1s forwards}
+@keyframes fade-in{to{opacity:1}}
+.me{position:absolute;left:50%;bottom:0;height:min(86%,820px);aspect-ratio:848/985;transform:translateX(-50%);will-change:transform}
+.me img{width:100%;height:100%;object-fit:contain;object-position:bottom;opacity:0;transform:translateY(24px);filter:brightness(0);animation:emerge 2.2s var(--ease) .75s forwards}
+@keyframes emerge{60%{opacity:1}to{opacity:1;transform:none;filter:brightness(1)}}
+.cue{position:absolute;left:50%;bottom:26px;z-index:3;width:1px;height:46px;background:linear-gradient(var(--faint),transparent);transform:translateX(-50%);opacity:0;animation:fade-in 1s ease 2.6s forwards;overflow:hidden}
+.cue::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ink);animation:cue 2.2s var(--ease) infinite}
+@keyframes cue{to{top:110%}}
 
 /* ---------- statement ---------- */
 .statement{padding:170px 0 170px}
@@ -196,7 +201,7 @@ footer nav a:hover{color:var(--link)}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv,.name .l,.person img,.corner,.contact h2 .ch{opacity:1!important;transform:none!important;filter:none!important}
+  .rv,.build,.beam,.floor,.me img,.cue,.contact h2 .ch{opacity:1!important;transform:none!important;filter:none!important}
   .lit span{color:var(--ink)}
   .lid{transform:none!important}.phone{--px:0;--py:0;--pr:0deg;--po:1}
   html{scroll-behavior:auto}
@@ -210,14 +215,16 @@ footer nav a:hover{color:var(--link)}
 @media (max-width:640px){
   .nav ul{display:none}
   .hero{min-height:600px;max-height:820px}
-  .name{top:33%;font-size:19vw}
-  .aura i:nth-child(1){width:120vw;height:120vw;left:-10vw;top:22%}
-  .aura i:nth-child(2){width:80vw;height:80vw;left:30vw;top:40%}
-  .person{width:86vw;bottom:92px}
-  .corner{bottom:28px;font-size:14px}
-  .corner b{font-size:16px}
-  .corner.l{left:0;right:0;text-align:center}
-  .corner.r{display:none}
+  .hero{min-height:620px;max-height:900px}
+  .hero .wrap{grid-template-columns:1fr;align-items:end;padding-bottom:84px}
+  .stage{left:0;right:0;width:100%;top:0;bottom:auto;height:60%}
+  .cue{display:none}
+  .me{height:100%}
+  .stage-copy{padding-top:0;text-align:center}
+  .stage-copy h1{font-size:clamp(40px,11.5vw,56px);margin-top:12px}
+  .stage-copy .eyebrow{font-size:15px}
+  .stage-copy p{font-size:17px;margin:16px auto 0}
+  .stage-copy .links{justify-content:center;margin-top:22px;font-size:17px}
   .statement{padding:110px 0}
   .work-intro{padding-bottom:60px}
   .degree{padding:34px 26px;border-radius:26px}
@@ -251,16 +258,24 @@ footer nav a:hover{color:var(--link)}
 
 <!-- HERO -->
 <header class="hero" id="top">
-  <div class="aura" aria-hidden="true"><i></i><i></i></div>
-  <h1 class="name" id="name" aria-label="Chathura Dhananjaya Weerathunga">Chathura</h1>
-  <div class="person" id="person">
-    <picture>
-      <source srcset="assets/chathura-cutout.webp" type="image/webp">
-      <img src="assets/chathura-cutout.png" alt="Chathura Dhananjaya Weerathunga" width="848" height="985">
-    </picture>
+  <div class="stage" aria-hidden="true">
+    <div class="lights" id="lights"><span class="beam"></span><span class="floor"></span></div>
+    <div class="me" id="me">
+      <picture>
+        <source srcset="assets/chathura-cutout.webp" type="image/webp">
+        <img src="assets/chathura-cutout.png" alt="" width="848" height="985">
+      </picture>
+    </div>
   </div>
-  <div class="corner l"><b>Software engineer &amp; entrepreneur</b>Chathura Dhananjaya Weerathunga</div>
-  <div class="corner r"><b>Founder &amp; CEO</b>Starxio · Chimebee<br><a class="more" href="#work">See my work</a></div>
+  <div class="wrap">
+    <div class="stage-copy" id="copy">
+      <p class="eyebrow build" style="animation-delay:1.5s">Chathura Dhananjaya Weerathunga</p>
+      <h1><span class="build" style="animation-delay:1.75s">Make it simple.</span><span class="dim build" style="animation-delay:2.05s">Make it matter.</span></h1>
+      <p class="build" style="animation-delay:2.35s">Software engineer and entrepreneur. Founder &amp; CEO of Starxio and Chimebee.</p>
+      <div class="links build" style="animation-delay:2.55s"><a class="more" href="#work">See my work</a><a class="more" href="#contact">Get in touch</a></div>
+    </div>
+  </div>
+  <span class="cue" aria-hidden="true"></span>
 </header>
 
 <!-- STATEMENT -->
@@ -384,10 +399,6 @@ const fine = matchMedia('(pointer: fine)').matches;
 const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
 const ease = t => 1 - Math.pow(1 - t, 3);
 
-/* name letters rise one by one */
-const nameEl = document.getElementById('name');
-nameEl.innerHTML = [...nameEl.textContent].map((c, i) => `<span class="l" aria-hidden="true" style="animation-delay:${(.15 + i * .07).toFixed(2)}s">${c}</span>`).join('');
-
 /* "Let's talk." letters */
 const talk = document.getElementById('talk');
 talk.innerHTML = [...talk.textContent].map((c, i) => c === ' ' ? ' ' : `<span class="ch" style="transition-delay:${i * .04}s">${c}</span>`).join('');
@@ -423,10 +434,8 @@ const vio = new IntersectionObserver(es => es.forEach(e => {
 document.querySelectorAll('video[data-src]').forEach(v => vio.observe(v));
 
 /* pointer magic */
-const hero = document.getElementById('top'), person = document.getElementById('person');
-let mx = 0, my = 0;
+const copy = document.getElementById('copy'), me = document.getElementById('me'), lights = document.getElementById('lights');
 if (fine && !reduce) {
-  hero.addEventListener('mousemove', e => { mx = e.clientX / innerWidth - .5; my = e.clientY / innerHeight - .5; requestFrame(); }, {passive:true});
   document.querySelectorAll('.magnet').forEach(b => {
     b.addEventListener('mousemove', e => { const r = b.getBoundingClientRect(); b.style.transform = `translate(${(e.clientX - r.left - r.width / 2) * .25}px, ${(e.clientY - r.top - r.height / 2) * .35}px)`; });
     b.addEventListener('mouseleave', () => b.style.transform = '');
@@ -451,11 +460,12 @@ function frame() {
   bar.style.transform = `scaleX(${y / (document.documentElement.scrollHeight - vh)})`;
   if (reduce) { words.forEach(w => w.classList.add('on')); return; }
 
-  // hero: name and portrait separate in depth as you scroll and move the mouse
+  // hero: the stage dims and the words drift away as you scroll on
   const hp = clamp(y / vh, 0, 1);
-  nameEl.style.transform = `translate(${mx * -30}px, ${hp * 180 + my * -16}px) scale(${1 + hp * .12})`;
-  nameEl.style.opacity = 1 - hp * 1.2;
-  person.style.transform = `translate(calc(-50% + ${mx * 24}px), ${hp * 60 + my * 10}px) scale(${1 - hp * .06})`;
+  copy.style.transform = `translateY(${hp * -70}px)`;
+  copy.style.opacity = 1 - hp * 1.4;
+  me.style.transform = `translate(-50%, ${hp * 50}px) scale(${1 - hp * .05})`;
+  lights.style.opacity = 1 - hp * 1.2;
 
   // statement words
   const lr = lit.getBoundingClientRect();
