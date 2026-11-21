@@ -94,6 +94,10 @@ img,video{display:block;max-width:100%}
 .film-btn .play{display:none}
 .film-btn.paused .play{display:block}
 .film-btn.paused .pause{display:none}
+.film-snd{right:88px}
+.film-snd .on{display:none}
+.film-snd.unmuted .on{display:block}
+.film-snd.unmuted .off{display:none}
 .film-cap{text-align:center;font-size:15px;color:var(--sub);margin-top:22px}
 
 /* ---------- statement ---------- */
@@ -236,6 +240,7 @@ footer nav a:hover{color:var(--link)}
   .stage-copy p{font-size:17px;margin:16px auto 0}
   .stage-copy .links{justify-content:center;margin-top:22px;font-size:17px}
   .film-btn{right:14px;bottom:14px;width:40px;height:40px}
+  .film-snd{right:62px}
   .statement{padding:110px 0}
   .work-intro{padding-bottom:60px}
   .degree{padding:34px 26px;border-radius:26px}
@@ -293,12 +298,16 @@ footer nav a:hover{color:var(--link)}
 <section class="film" aria-label="Brand film">
   <div class="film-frame" id="filmFrame">
     <video id="filmVideo" muted loop playsinline preload="none" poster="assets/video/brand-film.jpg" aria-label="A short brand film about Chathura Weerathunga and his work"></video>
+    <button class="film-btn film-snd" id="filmSnd" aria-label="Turn sound on">
+      <svg class="off" viewBox="0 0 18 18"><path d="M2 6.5h2.6L8.4 3.4c.5-.4 1.1 0 1.1.6v10c0 .6-.6 1-1.1.6L4.6 11.5H2a.8.8 0 0 1-.8-.8V7.3c0-.4.4-.8.8-.8z"/><path d="M12.3 6.6l4 4M16.3 6.6l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+      <svg class="on" viewBox="0 0 18 18"><path d="M2 6.5h2.6L8.4 3.4c.5-.4 1.1 0 1.1.6v10c0 .6-.6 1-1.1.6L4.6 11.5H2a.8.8 0 0 1-.8-.8V7.3c0-.4.4-.8.8-.8z"/><path d="M12 6.2a4 4 0 0 1 0 5.6M14.2 4.2a7 7 0 0 1 0 9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
+    </button>
     <button class="film-btn" id="filmBtn" aria-label="Pause film">
       <svg class="pause" viewBox="0 0 18 18"><rect x="3" y="2" width="4" height="14" rx="1.2"/><rect x="11" y="2" width="4" height="14" rx="1.2"/></svg>
       <svg class="play" viewBox="0 0 18 18"><path d="M4 2.6v12.8c0 .8.9 1.3 1.6.9l10.2-6.4c.6-.4.6-1.3 0-1.7L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg>
     </button>
   </div>
-  <p class="film-cap rv">Watch the 27-second story.</p>
+  <p class="film-cap rv">Watch the 27-second story. Tap the speaker for sound.</p>
 </section>
 
 <!-- STATEMENT -->
@@ -485,6 +494,15 @@ filmBtn.addEventListener('click', () => {
   if (!film.src) film.src = filmSrc();
   if (film.paused) { filmPausedByUser = false; film.play(); setBtn(false); }
   else { filmPausedByUser = true; film.pause(); setBtn(true); }
+});
+
+const filmSnd = document.getElementById('filmSnd');
+filmSnd.addEventListener('click', () => {
+  if (!film.src) film.src = filmSrc();
+  film.muted = !film.muted;
+  filmSnd.classList.toggle('unmuted', !film.muted);
+  filmSnd.setAttribute('aria-label', film.muted ? 'Turn sound on' : 'Turn sound off');
+  if (!film.muted) { if (film.currentTime > 25) film.currentTime = 0; filmPausedByUser = false; film.play(); setBtn(false); }
 });
 
 /* scroll-driven scene */
