@@ -4,402 +4,370 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Chathura Dhananjaya Weerathunga · Software Engineer and Founder</title>
-<meta name="description" content="Software engineer and founder of Starxio and Chimebee. BEng (Hons) Software Engineering, London Metropolitan University.">
+<meta name="description" content="Software engineer and entrepreneur. Founder &amp; CEO of Starxio and Chimebee. BEng (Hons) Software Engineering, London Metropolitan University.">
 <meta property="og:title" content="Chathura Dhananjaya Weerathunga">
-<meta property="og:description" content="Software engineer. Entrepreneur. Founder of Starxio and Chimebee.">
+<meta property="og:description" content="Software engineer and entrepreneur. Founder &amp; CEO of Starxio and Chimebee.">
 <meta property="og:image" content="assets/chathura.jpg">
-<meta name="theme-color" content="#000000">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23000'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial' font-weight='700' font-size='28' fill='%23fff' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
+<meta name="theme-color" content="#ffffff">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231d1d1f'/%3E%3Ctext x='32' y='42' font-family='Helvetica,Arial' font-weight='700' font-size='26' fill='%23fff' text-anchor='middle'%3ECW%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --black:#000;--ink:#1d1d1f;--g1:#424245;--g2:#6e6e73;--g3:#86868b;--g4:#d2d2d7;--paper:#fff;--paper-2:#f5f5f7;
-  --link:#0066cc;--link-d:#2997ff;--blue:#0071e3;
+  --ink:#1d1d1f;--g1:#424245;--g2:#6e6e73;--g3:#86868b;--line:#e5e5ea;
+  --bg:#fff;--bg2:#f5f5f7;--blue:#0071e3;--link:#0066cc;
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.22,.8,.24,1);
-  --max:980px;
+  --r:20px;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{font-family:var(--font);background:var(--paper);color:var(--ink);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;font-feature-settings:"ss01","cv11";letter-spacing:-.01em}
+html{scroll-behavior:smooth;scroll-padding-top:64px;-webkit-text-size-adjust:100%}
+body{font-family:var(--font);background:var(--bg);color:var(--ink);font-size:17px;line-height:1.5;letter-spacing:-.011em;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 a{color:inherit;text-decoration:none}
-img{display:block;max-width:100%}
-::selection{background:#0071e3;color:#fff}
-.wrap{max-width:calc(var(--max) + 44px);margin:0 auto;padding:0 22px}
-.wide{max-width:1280px;margin:0 auto;padding:0 22px}
+img{display:block;max-width:100%;height:auto}
+::selection{background:var(--blue);color:#fff}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+section{padding:112px 0}
 
-/* Apple style type scale */
-.eyebrow{font-size:clamp(17px,1.6vw,21px);font-weight:600;letter-spacing:-.015em}
-.headline{font-size:clamp(48px,8vw,96px);line-height:1.02;letter-spacing:-.05em;font-weight:700}
-.title{font-size:clamp(40px,5.6vw,64px);line-height:1.05;letter-spacing:-.045em;font-weight:700}
-.sub{font-size:clamp(19px,2vw,28px);line-height:1.18;letter-spacing:-.02em;font-weight:500}
-.copy{font-size:clamp(17px,1.5vw,21px);line-height:1.42;letter-spacing:-.015em;color:var(--g2)}
-.center{text-align:center}
-.links{display:flex;gap:30px;justify-content:center;flex-wrap:wrap;font-size:clamp(17px,1.5vw,19px)}
-.links a{color:var(--link)}
-.links a::after{content:"\00a0›";}
-.links a:hover{text-decoration:underline}
-.dark .links a{color:var(--link-d)}
-.pill{display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 22px;border-radius:999px;background:var(--blue);color:#fff !important;font-size:17px;white-space:nowrap;transition:background .2s}
-.pill::after{content:none !important}
-.pill:hover{background:#0077ed;text-decoration:none !important}
+/* type */
+.label{display:inline-block;font-size:13px;font-weight:600;color:var(--blue);letter-spacing:0;margin-bottom:12px}
+h2{font-size:clamp(30px,3.4vw,40px);line-height:1.12;letter-spacing:-.03em;font-weight:700}
+.lead{font-size:19px;line-height:1.5;color:var(--g2);margin-top:14px;max-width:620px}
+.sec-head{margin-bottom:52px}
 
-/* ---------- global nav ---------- */
-.gnav{position:fixed;inset:0 0 auto;z-index:50;height:44px;background:rgba(22,22,23,.8);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);color:rgba(255,255,255,.8);font-size:12px}
-.gnav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
-.gnav .mark{font-weight:600;font-size:14px;color:#f5f5f7;letter-spacing:-.01em}
-.gnav ul{display:flex;gap:38px;list-style:none}
-.gnav ul a{transition:color .2s}
-.gnav ul a:hover{color:#fff}
-.gnav .cta{color:#f5f5f7}
-.subnav{position:sticky;top:44px;z-index:40;height:52px;background:rgba(255,255,255,.72);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid rgba(0,0,0,.12);margin-top:44px}
-.subnav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
-.subnav b{font-size:21px;font-weight:600;letter-spacing:-.02em}
-.subnav nav{display:flex;align-items:center;gap:24px;font-size:12px;color:var(--g1)}
-.subnav nav a:hover{color:var(--link)}
-.subnav .pill{height:28px;padding:0 12px;font-size:12px}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 22px;border-radius:999px;font-size:16px;font-weight:500;white-space:nowrap;transition:background .2s,border-color .2s,transform .2s}
+.btn:active{transform:scale(.98)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#0077ed}
+.btn-ghost{border:1px solid #d2d2d7;color:var(--ink);background:#fff}
+.btn-ghost:hover{border-color:#a1a1a6}
+.btn svg{width:18px;height:18px}
+.wa-ico{fill:#25d366}
 
-/* ---------- hero ---------- */
-.hero{background:linear-gradient(180deg,#e4e4e4 0%,#dadada 100%);overflow:hidden;padding-top:72px}
-.hero .eyebrow{color:var(--g2)}
-.hero .headline{margin-top:10px}
-.hero .sub{margin-top:18px;color:var(--g1)}
-.hero .links{margin-top:28px}
-.hero-photo{position:relative;width:min(760px,100%);margin:28px auto 0}
-.hero-photo img{width:100%;height:auto;filter:grayscale(1) contrast(1.04);
-  -webkit-mask-image:radial-gradient(ellipse 56% 72% at 50% 50%,#000 50%,transparent 100%);mask-image:radial-gradient(ellipse 56% 72% at 50% 50%,#000 50%,transparent 100%)}
+/* nav */
+.nav{position:fixed;inset:0 0 auto;z-index:50;height:60px;background:rgba(255,255,255,.78);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);border-bottom:1px solid transparent;transition:border-color .3s}
+.nav.scrolled{border-bottom-color:rgba(0,0,0,.08)}
+.nav .wrap{height:100%;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:10px;font-weight:600;font-size:15px;letter-spacing:-.015em}
+.brand i{width:30px;height:30px;border-radius:8px;background:var(--ink);color:#fff;font-style:normal;font-size:12px;font-weight:700;display:grid;place-items:center;letter-spacing:0}
+.nav ul{display:flex;gap:32px;list-style:none;font-size:14px;color:var(--g1)}
+.nav ul a:hover{color:var(--ink)}
+.nav .btn{height:34px;padding:0 16px;font-size:14px}
 
-/* ---------- keynote line ---------- */
-.keynote{background:#000;color:#f5f5f7;padding:180px 0}
-.keynote .eyebrow{color:var(--g3);margin-bottom:28px}
-.lit{font-size:clamp(32px,4.4vw,56px);line-height:1.1;letter-spacing:-.04em;font-weight:600;max-width:900px}
-.lit span{color:#3a3a3c;transition:color .3s}
-.lit span.on{color:#f5f5f7}
+/* hero */
+.hero{padding:148px 0 96px}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:72px;align-items:center}
+.badge{display:inline-flex;align-items:center;gap:8px;height:32px;padding:0 14px;border-radius:999px;background:var(--bg2);font-size:13px;font-weight:500;color:var(--g1)}
+.badge b{width:7px;height:7px;border-radius:50%;background:#30d158;box-shadow:0 0 0 3px rgba(48,209,88,.18)}
+.hero h1{font-size:clamp(38px,4.6vw,56px);line-height:1.06;letter-spacing:-.035em;font-weight:700;margin-top:22px}
+.hero .role{font-size:clamp(19px,1.8vw,22px);color:var(--g1);margin-top:14px;font-weight:500;letter-spacing:-.018em}
+.hero .intro{font-size:18px;color:var(--g2);margin-top:18px;max-width:34em;line-height:1.55}
+.hero .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.facts{display:grid;grid-template-columns:repeat(3,1fr);margin-top:52px;border-top:1px solid var(--line)}
+.fact{padding:20px 20px 0 0}
+.fact + .fact{padding-left:20px;border-left:1px solid var(--line)}
+.fact small{display:block;font-size:12px;color:var(--g3);font-weight:500}
+.fact span{display:block;font-size:15px;font-weight:600;margin-top:4px;letter-spacing:-.015em;line-height:1.3}
+.portrait{position:relative}
+.portrait figure{aspect-ratio:4/5;border-radius:28px;overflow:hidden;background:#ddd;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+.portrait img{width:100%;height:100%;object-fit:cover;object-position:30% 30%;transform:scale(1.15);transform-origin:32% 30%;filter:grayscale(1) contrast(1.03)}
+.portrait .tag{position:absolute;left:-28px;bottom:36px;background:rgba(255,255,255,.86);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-radius:16px;padding:14px 18px;box-shadow:0 12px 30px -12px rgba(0,0,0,.25);font-size:13px;color:var(--g2);line-height:1.35}
+.portrait .tag b{display:block;color:var(--ink);font-size:15px;letter-spacing:-.015em}
 
-/* ---------- product tiles (Apple homepage) ---------- */
-.tiles{padding:12px;background:var(--paper);display:grid;gap:12px}
-.tile{position:relative;overflow:hidden;text-align:center;padding:56px 20px 0;display:flex;flex-direction:column;align-items:center}
-.tile .t-name{font-size:clamp(40px,5.6vw,56px);font-weight:700;letter-spacing:-.045em;line-height:1.05}
-.tile .t-tag{font-size:clamp(19px,2vw,28px);font-weight:400;letter-spacing:-.02em;margin-top:6px}
-.tile .t-kind{font-size:14px;font-weight:600;letter-spacing:0;margin-bottom:6px}
-.tile .links{margin-top:18px}
-.tile .shot{margin-top:46px;width:min(1000px,88%);border-radius:14px 14px 0 0;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.08),0 40px 80px -30px rgba(0,0,0,.45);transform:translateY(40px);transition:transform 1.4s var(--ease);background:#000}
-.tile.in .shot{transform:none}
-.tile .shot .bar{height:30px;background:#e8e8ed;display:flex;align-items:center;gap:6px;padding:0 12px;position:relative}
-.tile .shot .bar i{width:10px;height:10px;border-radius:50%}
-.tile .shot .bar i:nth-child(1){background:#ff5f57}.tile .shot .bar i:nth-child(2){background:#febc2e}.tile .shot .bar i:nth-child(3){background:#28c840}
-.tile .shot .url{position:absolute;left:50%;transform:translateX(-50%);font-size:11px;color:#6e6e73;background:#fff;border-radius:6px;padding:3px 40px}
-.tile .shot{display:block}
-.tile .shot img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover;object-position:top}
-.t-dark{background:#000;color:#f5f5f7}
-.t-dark .t-kind{color:#86868b}
-.t-light{background:var(--paper-2);color:var(--ink)}
-.t-light .t-kind{color:var(--g2)}
-.t-chime{background:linear-gradient(180deg,#0f3d33 0%,#0b2b25 100%);color:#f5f5f7}
-.t-chime .t-kind{color:#e3c27a}
-.t-chime .links a{color:#e3c27a}
+/* about */
+.about{background:var(--bg2)}
+.about-grid{display:grid;grid-template-columns:5fr 7fr;gap:72px}
+.about-text p{font-size:18px;line-height:1.6;color:var(--g1)}
+.about-text p + p{margin-top:18px}
+.skills{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:36px}
+.skill{background:#fff;border-radius:16px;padding:20px 20px 22px}
+.skill svg{width:26px;height:26px;stroke:var(--blue);fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.skill h3{font-size:16px;font-weight:600;margin-top:12px;letter-spacing:-.015em}
+.skill p{font-size:14px;color:var(--g2);margin-top:4px;line-height:1.45}
 
-.omt{background:#000;color:#f5f5f7;text-align:center;padding:150px 22px}
-.omt p{font-size:clamp(17px,1.6vw,21px);color:var(--g3);margin-bottom:16px;font-weight:600}
-.omt h2{font-size:clamp(56px,10vw,128px);font-weight:700;letter-spacing:-.055em;line-height:1}
+/* work */
+.projects{display:grid;gap:24px}
+.project{display:grid;grid-template-columns:1.25fr 1fr;gap:0;background:var(--bg2);border-radius:28px;overflow:hidden}
+.p-media{padding:40px 0 0 40px;display:flex;align-items:flex-end;overflow:hidden}
+.p-media .frame{width:100%;border-radius:12px 0 0 0;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.06),0 24px 48px -20px rgba(0,0,0,.3);transition:transform .8s var(--ease)}
+.project:hover .frame{transform:translateY(-6px)}
+.frame .bar{height:28px;background:#e8e8ed;display:flex;align-items:center;gap:6px;padding:0 12px}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:#d1d1d6}
+.frame .bar i:nth-child(1){background:#ff5f57}.frame .bar i:nth-child(2){background:#febc2e}.frame .bar i:nth-child(3){background:#28c840}
+.frame .bar span{margin-left:auto;margin-right:auto;transform:translateX(-24px);font-size:11px;color:var(--g2);background:#fff;border-radius:6px;padding:2px 28px}
+.frame img{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:top}
+.p-body{padding:44px 44px 40px;display:flex;flex-direction:column}
+.p-kind{font-size:13px;font-weight:600;color:var(--blue)}
+.p-body h3{font-size:30px;font-weight:700;letter-spacing:-.03em;margin-top:8px;line-height:1.1}
+.p-role{font-size:15px;font-weight:600;color:var(--g1);margin-top:8px}
+.p-desc{font-size:16px;color:var(--g2);margin-top:14px;line-height:1.55}
+.p-body ul{list-style:none;margin-top:18px;display:grid;gap:10px}
+.p-body li{font-size:15px;color:var(--g1);line-height:1.45;padding-left:26px;position:relative}
+.p-body li::before{content:"";position:absolute;left:0;top:3px;width:16px;height:16px;border-radius:50%;background:rgba(0,113,227,.1) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.2 2.2 4.8-4.8' fill='none' stroke='%230071e3' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.p-link{margin-top:auto;padding-top:26px;font-size:16px;font-weight:500;color:var(--link);display:inline-flex;gap:6px;align-items:center}
+.p-link:hover{text-decoration:underline}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:16px}
+.chips span{font-size:12px;font-weight:500;color:var(--g1);background:#fff;border-radius:999px;padding:5px 11px}
 
-/* ---------- roles (Apple compare) ---------- */
-.roles{background:var(--paper);padding:150px 0 140px}
-.roles .title{text-align:center}
-.roles .copy{text-align:center;margin:18px auto 0;max-width:640px}
-.compare{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 44px;margin-top:80px}
-.col{display:flex;flex-direction:column}
-.col .c-num{font-size:12px;color:var(--g3);font-variant-numeric:tabular-nums}
-.col h3{font-size:28px;font-weight:700;letter-spacing:-.035em;margin-top:10px}
-.col .c-role{font-size:17px;font-weight:600;margin-top:6px;letter-spacing:-.015em}
-.col .c-field{font-size:14px;color:var(--g2);margin-top:6px;line-height:1.43;min-height:40px}
-.col ul{list-style:none;margin-top:26px;border-top:1px solid var(--g4)}
-.col li{font-size:15px;line-height:1.47;color:var(--g1);padding:14px 0;border-bottom:1px solid var(--g4)}
-.col .c-link{margin-top:22px;font-size:17px;color:var(--link)}
-.col .c-link::after{content:"\00a0›"}
-.col .c-link:hover{text-decoration:underline}
+/* education */
+.edu{background:var(--bg2)}
+.edu-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:24px;align-items:stretch}
+.degree{background:#fff;border-radius:28px;padding:44px;position:relative;overflow:hidden;display:flex;flex-direction:column}
+.degree .cap{width:52px;height:52px;border-radius:14px;background:var(--ink);display:grid;place-items:center}
+.degree .cap svg{width:28px;height:28px;stroke:#fff;fill:none;stroke-width:1.6;stroke-linejoin:round;stroke-linecap:round}
+.degree .k{font-size:13px;font-weight:600;color:var(--blue);margin-top:28px}
+.degree h3{font-size:clamp(26px,2.6vw,32px);font-weight:700;letter-spacing:-.03em;line-height:1.15;margin-top:8px}
+.degree .uni{margin-top:auto;padding-top:32px;border-top:1px solid var(--line);margin-top:36px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+.degree .uni b{display:block;font-size:17px;letter-spacing:-.015em}
+.degree .uni span{font-size:14px;color:var(--g2)}
+.degree .flag{font-size:12px;font-weight:600;color:var(--g1);background:var(--bg2);border-radius:999px;padding:6px 12px}
+.quals{background:#fff;border-radius:28px;padding:16px 36px}
+.qual{display:flex;gap:18px;align-items:flex-start;padding:24px 0;border-bottom:1px solid var(--line)}
+.qual:last-child{border-bottom:0}
+.qual .n{flex:none;width:36px;height:36px;border-radius:10px;background:var(--bg2);display:grid;place-items:center;font-size:13px;font-weight:600;color:var(--g1)}
+.qual small{display:block;font-size:12px;font-weight:600;color:var(--g3)}
+.qual h4{font-size:17px;font-weight:600;letter-spacing:-.015em;margin-top:2px;line-height:1.3}
+.qual p{font-size:14px;color:var(--g2);margin-top:2px}
 
-/* ---------- capabilities ---------- */
-.caps{background:var(--paper-2);padding:150px 0}
-.caps .title{text-align:center}
-.cap-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:44px;margin-top:80px}
-.cap svg{width:44px;height:44px;stroke:var(--ink);fill:none;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
-.cap h3{font-size:21px;font-weight:600;letter-spacing:-.02em;margin-top:22px}
-.cap p{font-size:15px;line-height:1.47;color:var(--g2);margin-top:8px}
+/* contact */
+.contact{background:#000;color:#f5f5f7}
+.contact .label{color:#2997ff}
+.contact .lead{color:#a1a1a6}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.contact .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:32px}
+.contact .btn-ghost{background:transparent;border-color:#424245;color:#f5f5f7}
+.contact .btn-ghost:hover{border-color:#86868b}
+.c-list{display:grid;gap:12px}
+.c-item{display:flex;align-items:center;gap:16px;background:#1c1c1e;border-radius:18px;padding:18px 20px;transition:background .2s}
+.c-item:hover{background:#2c2c2e}
+.c-item .ic{flex:none;width:42px;height:42px;border-radius:12px;background:#2c2c2e;display:grid;place-items:center}
+.c-item .ic svg{width:20px;height:20px;fill:none;stroke:#f5f5f7;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.c-item .ic svg.wa-ico{fill:#25d366;stroke:none}
+.c-item small{display:block;font-size:12px;color:#86868b}
+.c-item span{display:block;font-size:16px;font-weight:600;letter-spacing:-.015em}
+.c-item .go{margin-left:auto;color:#86868b;font-size:18px}
 
-/* ---------- education ---------- */
-.edu{background:#000;color:#f5f5f7;padding:170px 0 0;overflow:hidden}
-.edu .eyebrow{color:var(--g3)}
-.edu .title{margin-top:12px}
-.degree{margin:90px auto 0;text-align:center;position:relative;padding:0 0 150px}
-.degree::before{content:"";position:absolute;left:50%;top:-40px;width:900px;height:900px;transform:translateX(-50%);background:radial-gradient(circle,rgba(41,151,255,.14) 0%,transparent 60%);pointer-events:none}
-.degree .d-k{font-size:14px;font-weight:600;color:var(--g3);position:relative}
-.degree h3{font-size:clamp(52px,8.4vw,108px);font-weight:700;letter-spacing:-.055em;line-height:1;margin-top:18px;position:relative;
-  background:linear-gradient(180deg,#fff 30%,#a1a1a6 100%);-webkit-background-clip:text;background-clip:text;color:transparent}
-.degree .d-sub{font-size:clamp(24px,3vw,40px);font-weight:600;letter-spacing:-.035em;margin-top:6px;position:relative}
-.degree .d-uni{margin-top:34px;font-size:clamp(17px,1.6vw,21px);color:#a1a1a6;position:relative}
-.degree .d-uni b{color:#f5f5f7;font-weight:600}
-.quals{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));border-top:1px solid #333336}
-.qual{padding:40px 34px 46px;border-right:1px solid #333336;text-align:center}
-.qual:last-child{border-right:0}
-.qual .q-k{font-size:12px;color:var(--g3);font-weight:600}
-.qual h4{font-size:21px;font-weight:600;letter-spacing:-.02em;margin-top:10px;line-height:1.25}
-.qual p{font-size:14px;color:var(--g3);margin-top:8px}
+footer{background:#000;color:#86868b;font-size:13px}
+footer .wrap{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #2c2c2e;padding-top:22px;padding-bottom:28px}
+footer a:hover{color:#f5f5f7}
 
-/* ---------- contact ---------- */
-.contact{background:var(--paper);padding:170px 0 150px;text-align:center}
-.contact .eyebrow{color:var(--g2)}
-.contact .headline{margin-top:12px}
-.contact .copy{margin:22px auto 0;max-width:560px}
-.contact .actions{margin-top:36px;display:flex;justify-content:center;align-items:center;gap:16px 30px;flex-wrap:wrap}
-.pill-wa{background:#1d1d1f}
-.pill-wa:hover{background:#000}
-.pill svg{width:18px;height:18px;fill:#25d366}
-.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px;margin-top:80px;text-align:left}
-.card{background:var(--paper-2);border-radius:18px;padding:26px 24px 24px;display:flex;flex-direction:column;gap:4px;transition:transform .4s var(--ease),box-shadow .4s var(--ease)}
-.card:hover{transform:scale(1.02);box-shadow:0 18px 40px -18px rgba(0,0,0,.25)}
-.card small{font-size:12px;color:var(--g2);font-weight:600}
-.card span{font-size:16px;font-weight:600;letter-spacing:-.02em;overflow-wrap:anywhere}
-.card em{font-style:normal;font-size:14px;color:var(--link);margin-top:14px}
-
-footer{background:var(--paper-2);font-size:12px;color:var(--g2);padding:18px 0 22px}
-footer .wrap{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--g4);padding-top:16px}
-footer a:hover{text-decoration:underline}
-
-.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:rgba(29,29,31,.82);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);box-shadow:0 0 0 1px rgba(255,255,255,.12),0 14px 30px -10px rgba(0,0,0,.5);opacity:0;transform:scale(.8);pointer-events:none;transition:opacity .4s var(--ease),transform .4s var(--ease)}
+.wa-float{position:fixed;right:22px;bottom:22px;z-index:60;width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:#25d366;box-shadow:0 12px 28px -8px rgba(37,211,102,.55);opacity:0;transform:scale(.8);pointer-events:none;transition:opacity .35s var(--ease),transform .35s var(--ease)}
 .wa-float.show{opacity:1;transform:none;pointer-events:auto}
 .wa-float:hover{transform:scale(1.06)}
-.wa-float svg{width:26px;height:26px;fill:#25d366}
+.wa-float svg{width:28px;height:28px;fill:#fff}
 
 /* motion */
-.rv{opacity:0;transform:translateY(30px);transition:opacity 1.1s var(--ease),transform 1.1s var(--ease)}
+.rv{opacity:0;transform:translateY(24px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
 .rv.in{opacity:1;transform:none}
-.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}
-@media (prefers-reduced-motion:reduce){.rv,.tile .shot{opacity:1;transform:none;transition:none}.lit span{color:#f5f5f7}html{scroll-behavior:auto}}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
 
-@media (max-width:900px){
-  .compare{grid-template-columns:1fr;gap:64px}
-  .col .c-field{min-height:0}
-  .cap-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+/* responsive */
+@media (max-width:960px){
+  .hero-grid,.about-grid,.edu-grid,.contact-grid{grid-template-columns:1fr;gap:48px}
+  .portrait{max-width:440px;order:-1}
+  .portrait .tag{left:16px}
+  .project{grid-template-columns:1fr}
+  .p-media{padding:32px 0 0 32px;order:2}
 }
 @media (max-width:640px){
-  .gnav ul{display:none}
-  .subnav nav a:not(.pill){display:none}
-  .keynote,.roles,.caps{padding:110px 0}
-  .omt{padding:110px 22px}
-  .edu{padding-top:110px}
-  .degree{margin-top:60px;padding-bottom:100px}
-  .quals{grid-template-columns:1fr}
-  .qual{border-right:0;border-bottom:1px solid #333336;padding:30px 10px}
-  .qual:last-child{border-bottom:0}
-  .contact{padding:110px 0}
-  .cards{grid-template-columns:1fr}
-  .tile{padding-top:44px}
-  .tile .shot{width:100%}
-  .tile .shot{width:92%;margin-top:34px}
+  section{padding:80px 0}
+  .hero{padding:104px 0 72px}
+  .nav ul{display:none}
+  .facts{grid-template-columns:1fr}
+  .fact,.fact + .fact{padding:14px 0;border-left:0;border-bottom:1px solid var(--line)}
+  .skills{grid-template-columns:1fr}
+  .p-body{padding:32px 26px 28px}
+  .p-media{padding:24px 0 0 24px}
+  .degree{padding:32px 26px}
+  .quals{padding:8px 24px}
   .wa-float{right:16px;bottom:16px}
 }
 </style>
 </head>
 <body>
 
-<header class="gnav">
+<nav class="nav" id="nav">
   <div class="wrap">
-    <a class="mark" href="#top">CDW</a>
+    <a class="brand" href="#top"><i>CW</i>Chathura Weerathunga</a>
     <ul>
+      <li><a href="#about">About</a></li>
       <li><a href="#work">Work</a></li>
-      <li><a href="#roles">Roles</a></li>
-      <li><a href="#capabilities">Capabilities</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
-    <a class="cta" href="#contact">Get in touch</a>
+    <a class="btn btn-primary" href="#contact">Let's talk</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="top">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge rv"><b></b>Founder &amp; CEO, Starxio</span>
+      <h1 class="rv d1">Chathura Dhananjaya Weerathunga</h1>
+      <p class="role rv d1">Software Engineer · Entrepreneur · Visionary Leader</p>
+      <p class="intro rv d2">I build digital products and the companies behind them. From the first line of code to the brand people remember.</p>
+      <div class="actions rv d2">
+        <a class="btn btn-primary" href="#work">View my work</a>
+        <a class="btn btn-ghost" href="https://wa.me/94740027731" target="_blank" rel="noopener"><svg class="wa-ico" viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.170-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.38 9.38 0 0 1 9.43 9.44c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.3 11.3 0 0 0 12.05.7C5.79.7.7 5.79.7 12.04c0 2 .52 3.95 1.52 5.67L.6 23.6l6.03-1.58a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.34-5.09 11.35-11.34 0-3.03-1.18-5.88-3.33-8.02z"/></svg>WhatsApp me</a>
+      </div>
+      <div class="facts rv d2">
+        <div class="fact"><small>Company</small><span>Founder &amp; CEO, Starxio</span></div>
+        <div class="fact"><small>Product</small><span>Founder &amp; CEO, Chimebee</span></div>
+        <div class="fact"><small>Degree</small><span>BEng (Hons) Software Engineering</span></div>
+      </div>
+    </div>
+    <div class="portrait rv">
+      <figure><img src="assets/chathura.jpg" alt="Chathura Dhananjaya Weerathunga" width="1224" height="1224"></figure>
+      <div class="tag"><b>Software Engineer</b>Founder of Starxio &amp; Chimebee</div>
+    </div>
   </div>
 </header>
 
-<div class="subnav">
-  <div class="wrap">
-    <b>Chathura Weerathunga</b>
-    <nav>
-      <a href="#work">Overview</a>
-      <a href="#education">Education</a>
-      <a class="pill" href="#contact">Contact</a>
-    </nav>
-  </div>
-</div>
-
-<!-- HERO -->
-<section class="hero center" id="top">
-  <div class="wrap">
-    <p class="eyebrow rv">Chathura Dhananjaya Weerathunga</p>
-    <h1 class="headline rv d1">Ideas, engineered.</h1>
-    <p class="sub rv d2">Software engineer. Entrepreneur. Founder of Starxio and Chimebee.</p>
-    <div class="links rv d3"><a href="#work">See the work</a><a href="#contact">Get in touch</a></div>
-  </div>
-  <div class="hero-photo rv d2"><img src="assets/chathura.jpg" alt="Chathura Dhananjaya Weerathunga" width="1224" height="1224"></div>
-</section>
-
-<!-- KEYNOTE -->
-<section class="keynote">
-  <div class="wrap">
-    <p class="eyebrow rv">The idea</p>
-    <p class="lit" id="lit">Great products are not built in pieces. The code, the design and the business have to be thought of together, by people who care about every detail. That is how I build companies.</p>
-  </div>
-</section>
-
-<!-- WORK TILES -->
-<section class="tiles" id="work">
-  <article class="tile t-dark">
-    <p class="t-kind rv">Technology company</p>
-    <h2 class="t-name rv">Starxio</h2>
-    <p class="t-tag rv d1">Digital products, web platforms and online brands.</p>
-    <div class="links rv d2"><a href="#roles">Learn more</a><a href="https://www.starxio.com" target="_blank" rel="noopener">Visit starxio.com</a></div>
-    <a class="shot" href="https://www.starxio.com" target="_blank" rel="noopener" aria-label="Open starxio.com">
-      <div class="bar"><i></i><i></i><i></i><span class="url">starxio.com</span></div>
-      <img src="assets/starxio.jpg" alt="Starxio website" width="2560" height="1600" loading="lazy">
-    </a>
-  </article>
-</section>
-
-<section class="omt">
-  <p class="rv">And then</p>
-  <h2 class="rv d1">One more thing.</h2>
-</section>
-
-<section class="tiles">
-  <article class="tile t-chime">
-    <p class="t-kind rv">A Starxio product</p>
-    <h2 class="t-name rv">Chimebee</h2>
-    <p class="t-tag rv d1">Guests ask. Your team delivers.</p>
-    <div class="links rv d2"><a href="#roles">Learn more</a><a href="https://www.chimebee.com" target="_blank" rel="noopener">Visit chimebee.com</a></div>
-    <a class="shot" href="https://www.chimebee.com" target="_blank" rel="noopener" aria-label="Open chimebee.com">
-      <div class="bar"><i></i><i></i><i></i><span class="url">chimebee.com</span></div>
-      <img src="assets/chimebee.jpg" alt="Chimebee website" width="2560" height="1600" loading="lazy">
-    </a>
-  </article>
-  <article class="tile t-light">
-    <p class="t-kind rv">Client project</p>
-    <h2 class="t-name rv">Lankaveya Travel</h2>
-    <p class="t-tag rv d1">Private journeys, designed and built for the web.</p>
-    <div class="links rv d2"><a href="#roles">Learn more</a><a href="https://www.lankaveyatravel.com" target="_blank" rel="noopener">Visit the site</a></div>
-    <a class="shot" href="https://www.lankaveyatravel.com" target="_blank" rel="noopener" aria-label="Open lankaveyatravel.com">
-      <div class="bar"><i></i><i></i><i></i><span class="url">lankaveyatravel.com</span></div>
-      <img src="assets/lankaveya.jpg" alt="Lankaveya Travel website" width="2560" height="1600" loading="lazy">
-    </a>
-  </article>
-</section>
-
-<!-- ROLES -->
-<section class="roles" id="roles">
-  <div class="wrap">
-    <h2 class="title rv">Which role, where.</h2>
-    <p class="copy rv d1">Founder, developer and brand lead. Often all three at once.</p>
-    <div class="compare">
-      <div class="col rv">
-        <span class="c-num">01</span>
-        <h3>Starxio</h3>
-        <p class="c-role">Founder &amp; CEO</p>
-        <p class="c-field">Web development, digital strategy and social media.</p>
-        <ul>
-          <li>Founded Starxio to create digital products, web solutions and online brands.</li>
-          <li>Designed and developed the company website, concept to deployment.</li>
-          <li>Lead online presence, content and brand strategy.</li>
-          <li>Spot new product opportunities. Launched Chimebee.</li>
-          <li>Combine engineering with business planning and product strategy.</li>
-        </ul>
-        <a class="c-link" href="https://www.starxio.com" target="_blank" rel="noopener">starxio.com</a>
-      </div>
-      <div class="col rv d1">
-        <span class="c-num">02</span>
-        <h3>Chimebee</h3>
-        <p class="c-role">Founder &amp; CEO · Product Developer</p>
-        <p class="c-field">Guest service platform for hospitality.</p>
-        <ul>
-          <li>Built one system for properties: guest requests, check-in, bills and staff.</li>
-          <li>Developed and launched the platform, owning build and brand.</li>
-          <li>Shaped product planning, positioning and digital identity.</li>
-          <li>Run social channels, content and audience engagement.</li>
-          <li>Align development with marketing for continuous improvement.</li>
-        </ul>
-        <a class="c-link" href="https://www.chimebee.com" target="_blank" rel="noopener">chimebee.com</a>
-      </div>
-      <div class="col rv d2">
-        <span class="c-num">03</span>
-        <h3>Lankaveya Travel</h3>
-        <p class="c-role">Web Developer &amp; Manager</p>
-        <p class="c-field">Web development, digital presence and social media.</p>
-        <ul>
-          <li>Translated the client's business goals into a functional travel website.</li>
-          <li>Designed and built the site around the needs of travellers.</li>
-          <li>Manage social channels to grow brand visibility.</li>
-        </ul>
-        <a class="c-link" href="https://www.lankaveyatravel.com" target="_blank" rel="noopener">lankaveyatravel.com</a>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <span class="label rv">About</span>
+      <h2 class="rv d1">Engineer by craft.<br>Founder by nature.</h2>
+    </div>
+    <div class="about-text">
+      <p class="rv">I'm a software engineer and entrepreneur. I founded <b>Starxio</b>, a technology company that creates digital products, web solutions and online brands, and launched <b>Chimebee</b> as its first product.</p>
+      <p class="rv d1">My work combines technical development with business planning, branding and product strategy, so every decision moves both the product and the company forward.</p>
+      <div class="skills">
+        <div class="skill rv"><svg viewBox="0 0 26 26"><path d="M9 8l-5 5 5 5M17 8l5 5-5 5M15 5l-4 16"/></svg><h3>Software engineering</h3><p>Web platforms built, launched and maintained.</p></div>
+        <div class="skill rv d1"><svg viewBox="0 0 26 26"><circle cx="13" cy="13" r="9"/><circle cx="13" cy="13" r="4"/></svg><h3>Product strategy</h3><p>From opportunity to a product people use.</p></div>
+        <div class="skill rv"><svg viewBox="0 0 26 26"><path d="M13 3l2.6 6.4L22 12l-6.4 2.6L13 21l-2.6-6.4L4 12l6.4-2.6z"/></svg><h3>Brand &amp; identity</h3><p>Positioning and a digital identity that lasts.</p></div>
+        <div class="skill rv d1"><svg viewBox="0 0 26 26"><path d="M4 19l6-6 4 4 8-9"/><path d="M16 8h6v6"/></svg><h3>Digital growth</h3><p>Social media, content and audience engagement.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CAPABILITIES -->
-<section class="caps" id="capabilities">
+<!-- WORK -->
+<section class="work" id="work">
   <div class="wrap">
-    <h2 class="title rv">Everything a product needs.<br><span style="color:var(--g3)">From one desk.</span></h2>
-    <div class="cap-grid">
-      <div class="cap rv"><svg viewBox="0 0 44 44"><rect x="5" y="9" width="34" height="24" rx="3"/><path d="M15 39h14M22 33v6M17 18l-4 3 4 3M27 18l4 3-4 3M24 16l-4 10"/></svg><h3>Engineering</h3><p>Web platforms and products, designed, built and deployed.</p></div>
-      <div class="cap rv d1"><svg viewBox="0 0 44 44"><circle cx="22" cy="22" r="16"/><circle cx="22" cy="22" r="9"/><circle cx="22" cy="22" r="2"/></svg><h3>Product</h3><p>Finding the opportunity, defining the product, shipping it.</p></div>
-      <div class="cap rv d2"><svg viewBox="0 0 44 44"><path d="M22 5l4.5 11.5L38 21l-11.5 4.5L22 37l-4.5-11.5L6 21l11.5-4.5z"/></svg><h3>Brand</h3><p>Positioning and digital identity people remember.</p></div>
-      <div class="cap rv d3"><svg viewBox="0 0 44 44"><path d="M6 34l10-10 7 7 15-17"/><path d="M30 14h8v8"/></svg><h3>Growth</h3><p>Social channels, content and audiences that keep growing.</p></div>
+    <div class="sec-head">
+      <span class="label rv">Work</span>
+      <h2 class="rv d1">Companies I've built and projects I've led.</h2>
+    </div>
+    <div class="projects">
+
+      <article class="project rv">
+        <a class="p-media" href="https://www.starxio.com" target="_blank" rel="noopener" aria-label="Open starxio.com">
+          <div class="frame"><div class="bar"><i></i><i></i><i></i><span>starxio.com</span></div><img src="assets/starxio.jpg" alt="Starxio website" width="2560" height="1600" loading="lazy"></div>
+        </a>
+        <div class="p-body">
+          <span class="p-kind">Technology company</span>
+          <h3>Starxio</h3>
+          <p class="p-role">Founder, CEO &amp; Developer</p>
+          <p class="p-desc">A technology startup creating digital products, web solutions and online brands.</p>
+          <ul>
+            <li>Designed and developed the company website, concept to deployment.</li>
+            <li>Lead online presence, content and brand strategy.</li>
+            <li>Identified new product opportunities and launched Chimebee.</li>
+          </ul>
+          <div class="chips"><span>Web development</span><span>Digital strategy</span><span>Social media</span></div>
+          <a class="p-link" href="https://www.starxio.com" target="_blank" rel="noopener">Visit starxio.com ›</a>
+        </div>
+      </article>
+
+      <article class="project rv">
+        <a class="p-media" href="https://www.chimebee.com" target="_blank" rel="noopener" aria-label="Open chimebee.com">
+          <div class="frame"><div class="bar"><i></i><i></i><i></i><span>chimebee.com</span></div><img src="assets/chimebee.jpg" alt="Chimebee website" width="2560" height="1600" loading="lazy"></div>
+        </a>
+        <div class="p-body">
+          <span class="p-kind">A Starxio product</span>
+          <h3>Chimebee</h3>
+          <p class="p-role">Founder, CEO &amp; Product Developer</p>
+          <p class="p-desc">One system for hotels and properties: guest requests, check-in, bills and the team.</p>
+          <ul>
+            <li>Developed and launched the platform, owning build and brand.</li>
+            <li>Shaped product planning, positioning and digital identity.</li>
+            <li>Manage social channels, content and audience engagement.</li>
+          </ul>
+          <div class="chips"><span>Product development</span><span>Web development</span><span>Brand</span></div>
+          <a class="p-link" href="https://www.chimebee.com" target="_blank" rel="noopener">Visit chimebee.com ›</a>
+        </div>
+      </article>
+
+      <article class="project rv">
+        <a class="p-media" href="https://www.lankaveyatravel.com" target="_blank" rel="noopener" aria-label="Open lankaveyatravel.com">
+          <div class="frame"><div class="bar"><i></i><i></i><i></i><span>lankaveyatravel.com</span></div><img src="assets/lankaveya.jpg" alt="Lankaveya Travel website" width="2560" height="1600" loading="lazy"></div>
+        </a>
+        <div class="p-body">
+          <span class="p-kind">Client project</span>
+          <h3>Lankaveya Travel</h3>
+          <p class="p-role">Web Developer &amp; Manager</p>
+          <p class="p-desc">A travel website for private tours, airport transfers and chauffeur-driven journeys.</p>
+          <ul>
+            <li>Turned the client's business goals into a functional website.</li>
+            <li>Designed and built it around the needs of travellers.</li>
+            <li>Manage social channels to grow brand visibility.</li>
+          </ul>
+          <div class="chips"><span>Web development</span><span>Digital presence</span><span>Social media</span></div>
+          <a class="p-link" href="https://www.lankaveyatravel.com" target="_blank" rel="noopener">Visit the site ›</a>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
 
 <!-- EDUCATION -->
-<section class="edu center" id="education">
+<section class="edu" id="education">
   <div class="wrap">
-    <p class="eyebrow rv">Education</p>
-    <h2 class="title rv d1">Built on a British degree.</h2>
-    <div class="degree">
-      <p class="d-k rv">Bachelor of Engineering with Honours</p>
-      <h3 class="rv d1">BEng (Hons)</h3>
-      <p class="d-sub rv d1">Software Engineering</p>
-      <p class="d-uni rv d2"><b>London Metropolitan University</b><br>United Kingdom</p>
+    <div class="sec-head">
+      <span class="label rv">Education</span>
+      <h2 class="rv d1">Qualifications</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="degree rv">
+        <div class="cap"><svg viewBox="0 0 28 28"><path d="M2 10l12-5 12 5-12 5z"/><path d="M7 12.5v6c0 1.7 3.1 3.5 7 3.5s7-1.8 7-3.5v-6"/><path d="M26 10v7"/></svg></div>
+        <p class="k">Bachelor's degree</p>
+        <h3>BEng (Hons)<br>Software Engineering</h3>
+        <div class="uni">
+          <div><b>London Metropolitan University</b><span>United Kingdom</span></div>
+          <span class="flag">UK degree</span>
+        </div>
+      </div>
+      <div class="quals rv d1">
+        <div class="qual"><span class="n">01</span><div><small>Pearson BTEC Level 5</small><h4>Higher National Diploma in Computing</h4><p>ESOFT Metro Campus</p></div></div>
+        <div class="qual"><span class="n">02</span><div><small>Pearson Assured</small><h4>Diploma in Technology</h4><p>ESOFT Metro Campus</p></div></div>
+        <div class="qual"><span class="n">03</span><div><small>Diploma</small><h4>Diploma in English</h4><p>ESOFT Metro Campus</p></div></div>
+      </div>
     </div>
   </div>
-  <div class="wrap">
-    <div class="quals rv">
-      <div class="qual"><p class="q-k">Pearson BTEC Level 5</p><h4>Higher National Diploma in Computing</h4><p>ESOFT Metro Campus</p></div>
-      <div class="qual"><p class="q-k">Pearson Assured</p><h4>Diploma in Technology</h4><p>ESOFT Metro Campus</p></div>
-      <div class="qual"><p class="q-k">Diploma</p><h4>Diploma in English</h4><p>ESOFT Metro Campus</p></div>
-    </div>
-  </div>
-  <div style="height:120px"></div>
 </section>
 
 <!-- CONTACT -->
 <section class="contact" id="contact">
-  <div class="wrap">
-    <p class="eyebrow rv">Contact</p>
-    <h2 class="headline rv d1">Let's build something<br>insanely great.</h2>
-    <p class="copy rv d2">A product, a partnership or a website that needs building. Send a message and I'll reply personally.</p>
-    <div class="actions rv d3">
-      <a class="pill pill-wa" href="https://wa.me/94740027731?text=Hi%20Chathura%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.38 9.38 0 0 1 9.43 9.44c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.3 11.3 0 0 0 12.05.7C5.79.7.7 5.79.7 12.04c0 2 .52 3.95 1.52 5.67L.6 23.6l6.03-1.58a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.34-5.09 11.35-11.34 0-3.03-1.18-5.88-3.33-8.02z"/></svg>Message on WhatsApp</a>
-      <div class="links"><a href="mailto:connectcdw@gmail.com">Send an email</a></div>
+  <div class="wrap contact-grid">
+    <div>
+      <span class="label rv">Contact</span>
+      <h2 class="rv d1">Let's work together.</h2>
+      <p class="lead rv d1">Have a product idea, a partnership or a website to build? Send a message and I'll reply personally.</p>
+      <div class="actions rv d2">
+        <a class="btn btn-primary" href="https://wa.me/94740027731?text=Hi%20Chathura%2C%20I%20saw%20your%20portfolio%20and%20would%20like%20to%20talk." target="_blank" rel="noopener">Message on WhatsApp</a>
+        <a class="btn btn-ghost" href="mailto:connectcdw@gmail.com">Send an email</a>
+      </div>
     </div>
-    <div class="cards">
-      <a class="card rv" href="mailto:connectcdw@gmail.com"><small>Email</small><span>connectcdw@gmail.com</span><em>Write ›</em></a>
-      <a class="card rv d1" href="https://wa.me/94740027731" target="_blank" rel="noopener"><small>WhatsApp</small><span>+94 74 00 27 731</span><em>Chat ›</em></a>
-      <a class="card rv d2" href="https://www.starxio.com" target="_blank" rel="noopener"><small>Company</small><span>starxio.com</span><em>Visit ›</em></a>
-      <a class="card rv d3" href="https://github.com/chathuraweerathunga" target="_blank" rel="noopener"><small>GitHub</small><span>chathuraweerathunga</span><em>Follow ›</em></a>
+    <div class="c-list">
+      <a class="c-item rv" href="mailto:connectcdw@gmail.com"><span class="ic"><svg viewBox="0 0 20 20"><rect x="2" y="4" width="16" height="12" rx="2.5"/><path d="M3 5.5l7 5 7-5"/></svg></span><div><small>Email</small><span>connectcdw@gmail.com</span></div><span class="go">›</span></a>
+      <a class="c-item rv d1" href="https://wa.me/94740027731" target="_blank" rel="noopener"><span class="ic"><svg class="wa-ico" viewBox="0 0 24 24"><path d="M17.47 14.38c-.3-.15-1.76-.87-2.03-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.26-.46-2.4-1.47-.89-.79-1.49-1.77-1.66-2.07-.17-.3-.02-.46.13-.61.13-.13.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.08-.15-.67-1.61-.92-2.21-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.04 1.02-1.04 2.48s1.07 2.88 1.21 3.08c.15.2 2.1 3.2 5.08 4.49.71.31 1.26.49 1.7.63.71.23 1.36.2 1.87.12.57-.08 1.76-.72 2-1.41.25-.7.25-1.29.17-1.41-.07-.13-.27-.2-.57-.35zM12.05 21.5h-.01a9.4 9.4 0 0 1-4.8-1.31l-.34-.2-3.57.93.95-3.48-.22-.36a9.4 9.4 0 0 1-1.44-5.02c0-5.2 4.23-9.43 9.44-9.43a9.38 9.38 0 0 1 9.43 9.44c0 5.2-4.24 9.43-9.44 9.43zm8.03-17.46A11.3 11.3 0 0 0 12.05.7C5.79.7.7 5.79.7 12.04c0 2 .52 3.95 1.52 5.67L.6 23.6l6.03-1.58a11.3 11.3 0 0 0 5.42 1.38h.01c6.25 0 11.34-5.09 11.35-11.34 0-3.03-1.18-5.88-3.33-8.02z"/></svg></span><div><small>WhatsApp</small><span>+94 74 00 27 731</span></div><span class="go">›</span></a>
+      <a class="c-item rv" href="https://www.starxio.com" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="7.5"/><path d="M2.5 10h15M10 2.5c2.2 2.2 2.2 12.8 0 15M10 2.5c-2.2 2.2-2.2 12.8 0 15"/></svg></span><div><small>Company</small><span>starxio.com</span></div><span class="go">›</span></a>
+      <a class="c-item rv d1" href="https://github.com/chathuraweerathunga" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 20 20"><path d="M7 15c-3 1-3-1.5-4.5-2M12.5 17v-2.6c0-.8.1-1.2-.4-1.6 2.3-.3 4.4-1.1 4.4-4.9a3.8 3.8 0 0 0-1-2.6 3.5 3.5 0 0 0-.1-2.6s-.8-.3-2.7 1a9.3 9.3 0 0 0-4.9 0C5.900 2.400 5 2.700 5 2.700a3.500 3.500 0 0 0-.1 2.600 3.800 3.800 0 0 0-1 2.600c0 3.800 2.100 4.600 4.400 4.900-.5.4-.5.900-.4 1.600V17"/></svg></span><div><small>GitHub</small><span>chathuraweerathunga</span></div><span class="go">›</span></a>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span>Copyright © <span id="yr">2026</span> Chathura Dhananjaya Weerathunga. All rights reserved.</span>
-    <span><a href="https://www.starxio.com" target="_blank" rel="noopener">Starxio</a> &nbsp;|&nbsp; <a href="https://www.chimebee.com" target="_blank" rel="noopener">Chimebee</a></span>
+    <span>© <span id="yr">2026</span> Chathura Dhananjaya Weerathunga</span>
+    <span><a href="https://www.starxio.com" target="_blank" rel="noopener">Starxio</a> &nbsp;·&nbsp; <a href="https://www.chimebee.com" target="_blank" rel="noopener">Chimebee</a></span>
   </div>
 </footer>
 
@@ -407,26 +375,11 @@ footer a:hover{text-decoration:underline}
 
 <script>
 document.getElementById('yr').textContent = new Date().getFullYear();
-
-const io = new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
-}), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
-document.querySelectorAll('.rv, .tile').forEach(el => io.observe(el));
-
-const wa = document.querySelector('.wa-float');
-const onScroll = () => wa.classList.toggle('show', scrollY > innerHeight * .7);
+const nav = document.getElementById('nav'), wa = document.querySelector('.wa-float');
+const onScroll = () => { nav.classList.toggle('scrolled', scrollY > 8); wa.classList.toggle('show', scrollY > innerHeight * .6); };
 addEventListener('scroll', onScroll, {passive:true}); onScroll();
-
-const lit = document.getElementById('lit');
-lit.innerHTML = lit.textContent.trim().split(/\s+/).map(w => `<span>${w}</span> `).join('');
-const words = [...lit.children];
-const paint = () => {
-  const r = lit.getBoundingClientRect(), vh = innerHeight;
-  const p = Math.min(1, Math.max(0, (vh * .8 - r.top) / (r.height + vh * .25)));
-  const n = Math.round(p * words.length);
-  words.forEach((w, i) => w.classList.toggle('on', i < n));
-};
-addEventListener('scroll', paint, {passive:true}); addEventListener('resize', paint); paint();
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), {threshold:.12, rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.rv').forEach(el => io.observe(el));
 </script>
 </body>
 </html>
