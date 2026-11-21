@@ -71,7 +71,7 @@ img,video{display:block;max-width:100%}
 .name{position:absolute;left:0;right:0;top:15%;text-align:center;font-weight:800;font-size:clamp(84px,19vw,300px);line-height:.86;letter-spacing:-.065em;white-space:nowrap;will-change:transform;user-select:none}
 .name .l{display:inline-block;background:linear-gradient(180deg,var(--name-a) 10%,var(--name-b) 95%);-webkit-background-clip:text;background-clip:text;color:transparent;padding:0 .02em;opacity:0;transform:translateY(40%);filter:blur(14px);animation:rise 1.3s var(--ease) forwards}
 @keyframes rise{to{opacity:1;transform:none;filter:none}}
-.person{position:absolute;left:50%;bottom:0;width:min(560px,74vw);transform:translateX(-50%);will-change:transform;z-index:2}
+.person{position:absolute;left:50%;bottom:0;width:min(520px,70vw);transform:translateX(-50%);will-change:transform;z-index:2}
 .person img{width:100%;height:auto;opacity:0;transform:translateY(80px) scale(.96);animation:person 1.6s var(--ease) .7s forwards}
 @keyframes person{to{opacity:1;transform:none}}
 .corner{position:absolute;bottom:44px;z-index:3;font-size:15px;line-height:1.45;color:var(--sub);opacity:0;animation:up 1s var(--ease) forwards}
@@ -210,7 +210,7 @@ footer nav a:hover{color:var(--link)}
 @media (max-width:640px){
   .nav ul{display:none}
   .hero{min-height:600px;max-height:820px}
-  .name{top:39%;font-size:19vw}
+  .name{top:33%;font-size:19vw}
   .aura i:nth-child(1){width:120vw;height:120vw;left:-10vw;top:22%}
   .aura i:nth-child(2){width:80vw;height:80vw;left:30vw;top:40%}
   .person{width:86vw;bottom:92px}
@@ -256,7 +256,7 @@ footer nav a:hover{color:var(--link)}
   <div class="person" id="person">
     <picture>
       <source srcset="assets/chathura-cutout.webp" type="image/webp">
-      <img src="assets/chathura-cutout.png" alt="Chathura Dhananjaya Weerathunga" width="944" height="985">
+      <img src="assets/chathura-cutout.png" alt="Chathura Dhananjaya Weerathunga" width="848" height="985">
     </picture>
   </div>
   <div class="corner l"><b>Software engineer &amp; entrepreneur</b>Chathura Dhananjaya Weerathunga</div>
