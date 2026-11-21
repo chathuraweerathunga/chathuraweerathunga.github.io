@@ -21,14 +21,14 @@
 :root{
   --bg:#fbfbfd;--bg2:#f5f5f7;--ink:#1d1d1f;--sub:#6e6e73;--faint:#d2d2d7;--line:#e5e5ea;
   --link:#0066cc;--nav:rgba(251,251,253,.72);--dim-word:#d2d2d7;
-  --name-a:#1d1d1f;--name-b:#86868b;--aura-1:rgba(0,113,227,.20);--aura-2:rgba(191,90,242,.16);--spot:rgba(0,113,227,.10);--beam:rgba(0,0,0,.055);--floor:rgba(0,0,0,.10);
+  --name-a:#1d1d1f;--name-b:#86868b;--aura-1:rgba(0,113,227,.20);--aura-2:rgba(191,90,242,.16);--spot:rgba(0,113,227,.10);--floor:rgba(0,0,0,.10);
   --font:-apple-system,BlinkMacSystemFont,"SF Pro Display","SF Pro Text","Inter","Helvetica Neue",Helvetica,Arial,sans-serif;
   --ease:cubic-bezier(.22,.8,.24,1);
 }
 [data-theme="dark"]{
   --bg:#000;--bg2:#0d0d0e;--ink:#f5f5f7;--sub:#a1a1a6;--faint:#424245;--line:#2c2c2e;
   --link:#2997ff;--nav:rgba(0,0,0,.66);--dim-word:#333336;
-  --name-a:#f5f5f7;--name-b:#3a3a3c;--aura-1:rgba(41,151,255,.26);--aura-2:rgba(191,90,242,.20);--spot:rgba(41,151,255,.14);--beam:rgba(255,255,255,.17);--floor:rgba(255,255,255,.07);
+  --name-a:#f5f5f7;--name-b:#3a3a3c;--aura-1:rgba(41,151,255,.26);--aura-2:rgba(191,90,242,.20);--spot:rgba(41,151,255,.14);--floor:rgba(255,255,255,.07);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -75,8 +75,6 @@ img,video{display:block;max-width:100%}
 @keyframes build{to{opacity:1;transform:none;filter:none}}
 .stage{position:absolute;top:0;bottom:0;right:max(0px,calc(50% - 640px));width:min(640px,52vw);z-index:1;pointer-events:none}
 .lights{position:absolute;inset:0;will-change:opacity}
-.beam{position:absolute;left:50%;top:-4%;width:150%;height:112%;transform:translateX(-50%);background:radial-gradient(ellipse 30% 64% at 50% 0%,var(--beam) 0%,transparent 74%);opacity:0;animation:light-on 2.4s linear .25s forwards}
-@keyframes light-on{0%{opacity:0}6%{opacity:.7}9%{opacity:.1}14%{opacity:.85}18%{opacity:.35}26%{opacity:1}100%{opacity:1}}
 .floor{position:absolute;left:50%;bottom:-7%;width:96%;height:24%;transform:translateX(-50%);background:radial-gradient(ellipse closest-side,var(--floor),transparent);opacity:0;animation:fade-in 2s ease 1s forwards}
 @keyframes fade-in{to{opacity:1}}
 .me{position:absolute;left:50%;bottom:0;height:min(86%,820px);aspect-ratio:848/985;transform:translateX(-50%);will-change:transform}
@@ -201,7 +199,7 @@ footer nav a:hover{color:var(--link)}
 
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
-  .rv,.build,.beam,.floor,.me img,.cue,.contact h2 .ch{opacity:1!important;transform:none!important;filter:none!important}
+  .rv,.build,.floor,.me img,.cue,.contact h2 .ch{opacity:1!important;transform:none!important;filter:none!important}
   .lit span{color:var(--ink)}
   .lid{transform:none!important}.phone{--px:0;--py:0;--pr:0deg;--po:1}
   html{scroll-behavior:auto}
@@ -217,7 +215,7 @@ footer nav a:hover{color:var(--link)}
   .hero{min-height:600px;max-height:820px}
   .hero{min-height:620px;max-height:900px}
   .hero .wrap{grid-template-columns:1fr;align-items:end;padding-bottom:84px}
-  .stage{left:0;right:0;width:100%;top:0;bottom:auto;height:60%}
+  .stage{left:0;right:0;width:100%;top:64px;bottom:auto;height:54%}
   .cue{display:none}
   .me{height:100%}
   .stage-copy{padding-top:0;text-align:center}
@@ -259,7 +257,7 @@ footer nav a:hover{color:var(--link)}
 <!-- HERO -->
 <header class="hero" id="top">
   <div class="stage" aria-hidden="true">
-    <div class="lights" id="lights"><span class="beam"></span><span class="floor"></span></div>
+    <div class="lights" id="lights"><span class="floor"></span></div>
     <div class="me" id="me">
       <picture>
         <source srcset="assets/chathura-cutout.webp" type="image/webp">
