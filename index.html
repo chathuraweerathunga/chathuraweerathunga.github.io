@@ -108,7 +108,7 @@ img,video{display:block;max-width:100%}
 .lit span.on{color:var(--ink)}
 
 /* ---------- work scenes ---------- */
-.work-intro{padding:0 0 90px}
+.work-intro{padding-bottom:90px}
 .work-intro h2,.sec-title{font-size:clamp(40px,5.6vw,72px);line-height:1.02;letter-spacing:-.05em;font-weight:700}
 .work-intro p{font-size:clamp(19px,1.9vw,24px);color:var(--sub);margin-top:14px;letter-spacing:-.02em}
 
@@ -221,33 +221,55 @@ footer nav a:hover{color:var(--link)}
   html{scroll-behavior:auto}
 }
 @media (max-width:900px){
+  .hero{height:auto;min-height:0;max-height:none;padding:76px 0 64px}
+  .hero .wrap{display:block;height:auto}
+  .stage{position:relative;inset:auto;width:100%;height:min(56svh,560px);margin:0 auto}
+  .me{height:100%}
+  .cue{display:none}
+  .stage-copy{padding-top:0;margin-top:26px;text-align:center}
+  .stage-copy h1{font-size:clamp(34px,8vw,64px);margin-top:12px}
+  .stage-copy p{margin:16px auto 0;max-width:24em}
+  .stage-copy .links{justify-content:center;flex-wrap:wrap}
   .scene .grid,.scene.flip .grid{grid-template-columns:1fr;gap:48px}
   .scene.flip .copy{order:0}
   .scene{padding-top:100px}
   .quals{grid-template-columns:1fr}
 }
 @media (max-width:640px){
+  .wrap{padding:0 22px}
   .nav ul{display:none}
-  .hero{min-height:600px;max-height:820px}
-  .hero{min-height:620px;max-height:900px}
-  .hero .wrap{grid-template-columns:1fr;align-items:end;padding-bottom:84px}
-  .stage{left:0;right:0;width:100%;top:64px;bottom:auto;height:54%}
-  .cue{display:none}
+  /* hero: photo then words, stacked in normal flow so they can never overlap */
+  .hero{height:auto;min-height:0;max-height:none;padding:64px 0 56px}
+  .hero .wrap{display:block;height:auto}
+  .stage{position:relative;inset:auto;width:100%;height:min(54svh,430px);margin:0 auto}
   .me{height:100%}
-  .stage-copy{padding-top:0;text-align:center}
-  .stage-copy h1{font-size:clamp(40px,11.5vw,56px);margin-top:12px}
+  .cue{display:none}
+  .stage-copy{padding-top:0;margin-top:22px;text-align:center}
   .stage-copy .eyebrow{font-size:15px}
-  .stage-copy p{font-size:17px;margin:16px auto 0}
-  .stage-copy .links{justify-content:center;margin-top:22px;font-size:17px}
-  .film-btn{right:14px;bottom:14px;width:40px;height:40px}
-  .film-snd{right:62px}
-  .statement{padding:110px 0}
-  .work-intro{padding-bottom:60px}
-  .degree{padding:34px 26px;border-radius:26px}
-  .edu{padding:110px 0}
-  .contact{padding:120px 0 90px}
+  .stage-copy h1{font-size:clamp(34px,10.4vw,50px);margin-top:10px}
+  .stage-copy p{font-size:17px;margin:14px auto 0;max-width:22em}
+  .stage-copy .links{justify-content:center;gap:22px;margin-top:20px;font-size:17px;flex-wrap:wrap}
+  .film{padding:8px 0 20px}
+  .film-btn{right:12px;bottom:12px;width:38px;height:38px}
+  .film-snd{right:58px}
+  .statement{padding:90px 0}
+  .statement .k{margin-bottom:16px}
+  .work-intro{padding-bottom:40px}
+  .scene{padding:80px 0 30px}
+  .scene .grid,.scene.flip .grid{gap:40px}
+  .copy h3{font-size:clamp(42px,12.5vw,60px)}
+  .copy .tagline{font-size:20px}
+  .devices{padding-bottom:40px;width:90%;margin:0 auto}
+  .degree{padding:32px 24px;border-radius:24px}
+  .degree .uni{margin-top:32px}
+  .qual{padding:24px 22px;border-radius:20px}
+  .edu{padding:100px 0 90px}
+  .edu-head{margin-bottom:36px}
+  .contact{padding:110px 0 90px}
+  .details{gap:14px 28px}
   .phone{width:30%;right:-1%}
   .scene.flip .phone{left:-1%}
+  footer .wrap{justify-content:center;text-align:center;padding-bottom:96px}
 }
 </style>
 </head>
@@ -519,11 +541,11 @@ function frame() {
   if (reduce) { words.forEach(w => w.classList.add('on')); return; }
 
   // hero: the stage dims and the words drift away as you scroll on
-  const hp = clamp(y / vh, 0, 1);
-  copy.style.transform = `translateY(${hp * -70}px)`;
-  copy.style.opacity = 1 - hp * 1.4;
+  const hp = innerWidth > 900 ? clamp(y / vh, 0, 1) : 0;
+  copy.style.transform = hp ? `translateY(${hp * -70}px)` : '';
+  copy.style.opacity = hp ? 1 - hp * 1.4 : '';
   me.style.transform = `translate(-50%, ${hp * 50}px) scale(${1 - hp * .05})`;
-  lights.style.opacity = 1 - hp * 1.2;
+  lights.style.opacity = hp ? 1 - hp * 1.2 : '';
 
   // film grows to full width as it rises into view
   const fr = filmFrame.getBoundingClientRect();
