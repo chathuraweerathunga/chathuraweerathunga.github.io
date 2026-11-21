@@ -84,6 +84,18 @@ img,video{display:block;max-width:100%}
 .cue::after{content:"";position:absolute;left:0;top:-40%;width:1px;height:40%;background:var(--ink);animation:cue 2.2s var(--ease) infinite}
 @keyframes cue{to{top:110%}}
 
+/* ---------- brand film ---------- */
+.film{padding:40px 0 0;overflow:hidden}
+.film-frame{position:relative;width:100%;aspect-ratio:16/9;max-height:100svh;margin:0 auto;background:#000;overflow:hidden;transform:scale(var(--fs,.8));border-radius:calc(30px / var(--fs,.8));will-change:transform;box-shadow:0 40px 100px -40px rgba(0,0,0,.5)}
+.film-frame video{width:100%;height:100%;object-fit:cover;display:block}
+.film-btn{position:absolute;right:28px;bottom:28px;width:48px;height:48px;border-radius:50%;border:0;cursor:pointer;display:grid;place-items:center;background:rgba(255,255,255,.16);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);color:#fff;transition:background .2s,transform .3s var(--ease)}
+.film-btn:hover{background:rgba(255,255,255,.26);transform:scale(1.06)}
+.film-btn svg{width:18px;height:18px;fill:currentColor}
+.film-btn .play{display:none}
+.film-btn.paused .play{display:block}
+.film-btn.paused .pause{display:none}
+.film-cap{text-align:center;font-size:15px;color:var(--sub);margin-top:22px}
+
 /* ---------- statement ---------- */
 .statement{padding:170px 0 170px}
 .statement .k{font-size:17px;font-weight:600;color:var(--sub);margin-bottom:22px}
@@ -223,6 +235,7 @@ footer nav a:hover{color:var(--link)}
   .stage-copy .eyebrow{font-size:15px}
   .stage-copy p{font-size:17px;margin:16px auto 0}
   .stage-copy .links{justify-content:center;margin-top:22px;font-size:17px}
+  .film-btn{right:14px;bottom:14px;width:40px;height:40px}
   .statement{padding:110px 0}
   .work-intro{padding-bottom:60px}
   .degree{padding:34px 26px;border-radius:26px}
@@ -275,6 +288,18 @@ footer nav a:hover{color:var(--link)}
   </div>
   <span class="cue" aria-hidden="true"></span>
 </header>
+
+<!-- BRAND FILM -->
+<section class="film" aria-label="Brand film">
+  <div class="film-frame" id="filmFrame">
+    <video id="filmVideo" muted loop playsinline preload="none" poster="assets/video/brand-film.jpg" aria-label="A short brand film about Chathura Weerathunga and his work"></video>
+    <button class="film-btn" id="filmBtn" aria-label="Pause film">
+      <svg class="pause" viewBox="0 0 18 18"><rect x="3" y="2" width="4" height="14" rx="1.2"/><rect x="11" y="2" width="4" height="14" rx="1.2"/></svg>
+      <svg class="play" viewBox="0 0 18 18"><path d="M4 2.6v12.8c0 .8.9 1.3 1.6.9l10.2-6.4c.6-.4.6-1.3 0-1.7L5.6 1.8C4.9 1.3 4 1.8 4 2.6z"/></svg>
+    </button>
+  </div>
+  <p class="film-cap rv">Watch the 27-second story.</p>
+</section>
 
 <!-- STATEMENT -->
 <section class="statement">
@@ -444,6 +469,24 @@ contact.addEventListener('mousemove', e => { const r = contact.getBoundingClient
 const degree = document.getElementById('degree');
 degree.addEventListener('mousemove', e => { const r = degree.getBoundingClientRect(); degree.style.setProperty('--dx', `${e.clientX - r.left}px`); degree.style.setProperty('--dy', `${e.clientY - r.top}px`); }, {passive:true});
 
+/* brand film: picks a size for the screen, plays while on screen, respects a manual pause */
+const film = document.getElementById('filmVideo'), filmBtn = document.getElementById('filmBtn'), filmFrame = document.getElementById('filmFrame');
+let filmPausedByUser = false;
+const filmSrc = () => innerWidth <= 900 ? 'assets/video/brand-film-720.mp4' : 'assets/video/brand-film.mp4';
+const setBtn = paused => { filmBtn.classList.toggle('paused', paused); filmBtn.setAttribute('aria-label', paused ? 'Play film' : 'Pause film'); };
+new IntersectionObserver(es => es.forEach(e => {
+  if (e.isIntersecting) {
+    if (!film.src) film.src = filmSrc();
+    if (!filmPausedByUser && !reduce) film.play().then(() => setBtn(false)).catch(() => setBtn(true));
+    else setBtn(true);
+  } else film.pause();
+}), {threshold:.35}).observe(film);
+filmBtn.addEventListener('click', () => {
+  if (!film.src) film.src = filmSrc();
+  if (film.paused) { filmPausedByUser = false; film.play(); setBtn(false); }
+  else { filmPausedByUser = true; film.pause(); setBtn(true); }
+});
+
 /* scroll-driven scene */
 const nav = document.getElementById('nav'), wa = document.getElementById('wa'), bar = document.getElementById('progress');
 const scenes = [...document.querySelectorAll('.scene')].map(s => ({el: s, lid: s.querySelector('.lid'), laptop: s.querySelector('.laptop'), phone: s.querySelector('.phone'), flip: s.classList.contains('flip')}));
@@ -464,6 +507,12 @@ function frame() {
   copy.style.opacity = 1 - hp * 1.4;
   me.style.transform = `translate(-50%, ${hp * 50}px) scale(${1 - hp * .05})`;
   lights.style.opacity = 1 - hp * 1.2;
+
+  // film grows to full width as it rises into view
+  const fr = filmFrame.getBoundingClientRect();
+  const fp = ease(clamp((vh - fr.top) / (vh * .85), 0, 1)), fs = .8 + .2 * fp;
+  filmFrame.style.setProperty('--fs', fs.toFixed(4));
+  filmFrame.style.borderRadius = `${(30 * (1 - fp) / fs).toFixed(2)}px`;
 
   // statement words
   const lr = lit.getBoundingClientRect();
