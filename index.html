@@ -319,7 +319,7 @@ footer nav a:hover{color:var(--link)}
 <!-- BRAND FILM -->
 <section class="film" aria-label="Brand film">
   <div class="film-frame" id="filmFrame">
-    <video id="filmVideo" muted loop playsinline preload="none" poster="assets/video/brand-film.jpg" aria-label="A short brand film about Chathura Weerathunga and his work"></video>
+    <video id="filmVideo" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="assets/video/brand-film.jpg" aria-label="A short brand film about Chathura Weerathunga and his work"></video>
     <button class="film-btn film-snd" id="filmSnd" aria-label="Turn sound on">
       <svg class="off" viewBox="0 0 18 18"><path d="M2 6.5h2.6L8.4 3.4c.5-.4 1.1 0 1.1.6v10c0 .6-.6 1-1.1.6L4.6 11.5H2a.8.8 0 0 1-.8-.8V7.3c0-.4.4-.8.8-.8z"/><path d="M12.3 6.6l4 4M16.3 6.6l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
       <svg class="on" viewBox="0 0 18 18"><path d="M2 6.5h2.6L8.4 3.4c.5-.4 1.1 0 1.1.6v10c0 .6-.6 1-1.1.6L4.6 11.5H2a.8.8 0 0 1-.8-.8V7.3c0-.4.4-.8.8-.8z"/><path d="M12 6.2a4 4 0 0 1 0 5.6M14.2 4.2a7 7 0 0 1 0 9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
@@ -499,22 +499,30 @@ contact.addEventListener('mousemove', e => { const r = contact.getBoundingClient
 const degree = document.getElementById('degree');
 degree.addEventListener('mousemove', e => { const r = degree.getBoundingClientRect(); degree.style.setProperty('--dx', `${e.clientX - r.left}px`); degree.style.setProperty('--dy', `${e.clientY - r.top}px`); }, {passive:true});
 
-/* brand film: picks a size for the screen, plays while on screen, respects a manual pause */
+/* brand film: autoplays (muted, as browsers require) as soon as it is on screen, and keeps trying until it runs */
 const film = document.getElementById('filmVideo'), filmBtn = document.getElementById('filmBtn'), filmFrame = document.getElementById('filmFrame');
-let filmPausedByUser = false;
+let filmPausedByUser = false, filmVisible = false;
 const filmSrc = () => innerWidth <= 900 ? 'assets/video/brand-film-720.mp4' : 'assets/video/brand-film.mp4';
 const setBtn = paused => { filmBtn.classList.toggle('paused', paused); filmBtn.setAttribute('aria-label', paused ? 'Play film' : 'Pause film'); };
+film.muted = true; film.defaultMuted = true; film.setAttribute('muted', '');
+film.src = filmSrc();                                   // start loading with the page
+const tryPlay = () => {
+  if (filmPausedByUser || !filmVisible || !film.paused) return;
+  film.play().then(() => setBtn(false)).catch(() => setBtn(true));
+};
+film.addEventListener('playing', () => setBtn(false));
+film.addEventListener('pause', () => setBtn(true));
+['loadeddata', 'canplay'].forEach(ev => film.addEventListener(ev, tryPlay));
+// some phones (battery saver, in-app browsers) only allow it after the first touch: start it then
+['touchstart', 'pointerdown', 'keydown'].forEach(ev => addEventListener(ev, tryPlay, {passive: true}));
 new IntersectionObserver(es => es.forEach(e => {
-  if (e.isIntersecting) {
-    if (!film.src) film.src = filmSrc();
-    if (!filmPausedByUser && !reduce) film.play().then(() => setBtn(false)).catch(() => setBtn(true));
-    else setBtn(true);
-  } else film.pause();
-}), {threshold:.35}).observe(film);
+  filmVisible = e.isIntersecting;
+  if (filmVisible) tryPlay(); else film.pause();
+}), {threshold: .15}).observe(film);
 filmBtn.addEventListener('click', () => {
   if (!film.src) film.src = filmSrc();
-  if (film.paused) { filmPausedByUser = false; film.play(); setBtn(false); }
-  else { filmPausedByUser = true; film.pause(); setBtn(true); }
+  if (film.paused) { filmPausedByUser = false; film.play(); }
+  else { filmPausedByUser = true; film.pause(); }
 });
 
 const filmSnd = document.getElementById('filmSnd');
@@ -523,7 +531,7 @@ filmSnd.addEventListener('click', () => {
   film.muted = !film.muted;
   filmSnd.classList.toggle('unmuted', !film.muted);
   filmSnd.setAttribute('aria-label', film.muted ? 'Turn sound on' : 'Turn sound off');
-  if (!film.muted) { if (film.currentTime > 25) film.currentTime = 0; filmPausedByUser = false; film.play(); setBtn(false); }
+  if (!film.muted) { if (film.currentTime > 25) film.currentTime = 0; filmPausedByUser = false; film.play(); }
 });
 
 /* scroll-driven scene */
