@@ -14,7 +14,7 @@
   (function(){var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t='light';document.documentElement.dataset.theme=t;})();
 </script>
 <link rel="preload" as="image" href="assets/chathura-cutout.webp" type="image/webp">
-<link rel="preload" as="image" href="assets/video/brand-film.jpg">
+<link rel="preload" as="image" href="assets/video/brand-film.jpg?v=20261126">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -326,7 +326,7 @@ footer nav a:hover{color:var(--link)}
 <!-- BRAND FILM -->
 <section class="film" aria-label="Brand film">
   <div class="film-frame" id="filmFrame">
-    <video id="filmVideo" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="assets/video/brand-film.jpg" aria-label="A short brand film about Chathura Weerathunga and his work"></video>
+    <video id="filmVideo" muted autoplay loop playsinline webkit-playsinline preload="auto" poster="assets/video/brand-film.jpg?v=20261126" aria-label="A short brand film about Chathura Weerathunga and his work"></video>
     <button class="film-btn film-snd" id="filmSnd" aria-label="Turn sound on">
       <svg class="off" viewBox="0 0 18 18"><path d="M2 6.5h2.6L8.4 3.4c.5-.4 1.1 0 1.1.6v10c0 .6-.6 1-1.1.6L4.6 11.5H2a.8.8 0 0 1-.8-.8V7.3c0-.4.4-.8.8-.8z"/><path d="M12.3 6.6l4 4M16.3 6.6l-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
       <svg class="on" viewBox="0 0 18 18"><path d="M2 6.5h2.6L8.4 3.4c.5-.4 1.1 0 1.1.6v10c0 .6-.6 1-1.1.6L4.6 11.5H2a.8.8 0 0 1-.8-.8V7.3c0-.4.4-.8.8-.8z"/><path d="M12 6.2a4 4 0 0 1 0 5.6M14.2 4.2a7 7 0 0 1 0 9.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" fill="none"/></svg>
@@ -527,7 +527,8 @@ degree.addEventListener('mousemove', e => { const r = degree.getBoundingClientRe
 /* brand film: autoplays (muted, as browsers require) as soon as it is on screen, and keeps trying until it runs */
 const film = document.getElementById('filmVideo'), filmBtn = document.getElementById('filmBtn'), filmFrame = document.getElementById('filmFrame');
 let filmPausedByUser = false, filmVisible = false;
-const filmSrc = () => innerWidth <= 900 ? 'assets/video/brand-film-720.mp4' : 'assets/video/brand-film.mp4';
+const FILM_V = '20261126';   // bump when the film changes, so browsers fetch the new file
+const filmSrc = () => (innerWidth <= 900 ? 'assets/video/brand-film-720.mp4' : 'assets/video/brand-film.mp4') + '?v=' + FILM_V;
 const setBtn = paused => { filmBtn.classList.toggle('paused', paused); filmBtn.setAttribute('aria-label', paused ? 'Play film' : 'Pause film'); };
 film.muted = true; film.defaultMuted = true; film.setAttribute('muted', '');
 film.src = filmSrc();                                   // start loading with the page
