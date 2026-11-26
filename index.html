@@ -14,6 +14,7 @@
   (function(){var t=localStorage.getItem('theme');if(t!=='dark'&&t!=='light')t='light';document.documentElement.dataset.theme=t;})();
 </script>
 <link rel="preload" as="image" href="assets/chathura-cutout.webp" type="image/webp">
+<link rel="preload" as="image" href="assets/video/brand-film.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -530,6 +531,11 @@ const filmSrc = () => innerWidth <= 900 ? 'assets/video/brand-film-720.mp4' : 'a
 const setBtn = paused => { filmBtn.classList.toggle('paused', paused); filmBtn.setAttribute('aria-label', paused ? 'Play film' : 'Pause film'); };
 film.muted = true; film.defaultMuted = true; film.setAttribute('muted', '');
 film.src = filmSrc();                                   // start loading with the page
+// open on the poster frame ("Every great product starts with a simple idea.") so playback starts instantly, with no black lead-in
+const FILM_START = 2.5;
+const toStart = () => { if (!film.dataset.started && film.currentTime < FILM_START) { film.currentTime = FILM_START; film.dataset.started = '1'; } };
+film.addEventListener('loadedmetadata', toStart);
+if (film.readyState >= 1) toStart();
 const tryPlay = () => {
   if (filmPausedByUser || !filmVisible || !film.paused) return;
   film.play().then(() => setBtn(false)).catch(() => setBtn(true));
